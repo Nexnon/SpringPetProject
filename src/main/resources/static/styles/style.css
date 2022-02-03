@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+.overlay{
+    background-color: black;
+    background-image: url(images/header.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.darker{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+}
+.overlay-title{
+    font-size: 8vw;
+    text-align: center;
+    font-weight: bold;
+    margin:auto;
+}
+.context{
+    height: 100vh;
+    background-color: white;
+    display: flex;
+}
+.card{
+    margin: auto;
+    width: 500px;
+    max-width: 100%;
+    height: 40%;
+
+    -webkit-perspective: 1200;
+    perspective: 1200;
+    -moz-transform: perspective(1200px);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d; 
+    transform-style: preserve-3d;
+}
+.flipper {
+    height: 100%;
+    display: flex;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: .7s linear;
+    -moz-transition: .7s linear;
+    -o-transition: .7s linear;
+    transition: .7s linear;
+}
+.back, .front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    box-shadow: black 2px 4px 5px;
+    border-radius: 20px;
+    display: flex;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.front {
+    background-image: url(images/britan-flag.jpg);
+
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+.back {
+    background-image: url(images/russian-flag.png);
+
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip{
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+
+.d-card{
+    border-radius: 20px;
+}
+.word{
+    margin: auto;
+    font-size: 60px;
+    text-align: center;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.footer{
+    height: 300px;
+    background-color: black;
+    display: flex;
+}
+.footer-title{
+    margin: auto;
+    font-size: 36px;
+    color: white;
+}
