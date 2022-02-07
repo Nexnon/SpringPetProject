@@ -4,14 +4,9 @@ import com.sun.istack.NotNull;
 
 public class WordPost {
     @NotNull
-    private final String WordEng;
+    private String WordEng;
     @NotNull
-    private final String WordRus;
-
-    public WordPost(String wordEng, String wordRus) {
-        WordEng = wordEng;
-        WordRus = wordRus;
-    }
+    private String WordRus;
 
     public String getWordEng() {
         return WordEng;
@@ -19,5 +14,13 @@ public class WordPost {
 
     public String getWordRus() {
         return WordRus;
+    }
+
+    public void setWordEng(String wordEng) {
+        WordEng = wordEng;
+    }
+
+    public void setWordRus(String wordRus) {
+        WordRus = wordRus;
     }
 }

@@ -20,7 +20,7 @@ function onClickGet(){
 function onClickPost(){
     let wordEng = document.querySelector('#wordEng');
     let wordRus = document.querySelector('#wordRus');
-    if(wordEng != null && wordRus != null){
+    if(wordEng.value !== "" && wordRus.value !== ""){
         let json = JSON.stringify({"wordEng": wordEng.value, "wordRus": wordRus.value});
         httpPost(document.location.href, json);
         alert("Слово успешно добавлено в словарь");
