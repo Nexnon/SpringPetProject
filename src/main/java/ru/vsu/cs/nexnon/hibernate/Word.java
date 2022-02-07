@@ -1,5 +1,7 @@
 package ru.vsu.cs.nexnon.hibernate;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity

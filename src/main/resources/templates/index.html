@@ -14,7 +14,7 @@
         </header>
         <section class="context">
             <div class="get-card">
-                <div class="card" onclick="onClick()" >
+                <div class="card" onclick="onClickGet()" >
                     <div class="flipper">
                         <div class="front">
                             <div class="darker d-card">
@@ -39,10 +39,9 @@
                         <label class="creator-text">Слово на русском<div style="color: red; display: inline;">*</div></label>
                         <input class="creator-ui-field" required th:type="text" name="wordRus" id="wordRus" placeholder="Слово">
                     </div>
-                    <button class="creator-ui-button">Добавить в словарь</button>
+                    <button class="creator-ui-button" type="button" onclick="onClickPost()" >Добавить в словарь</button>
                 </form>
             </div>
-
         </section>
         <footer class="footer">
             <h1 class="footer-title">Широков Илья</h1>

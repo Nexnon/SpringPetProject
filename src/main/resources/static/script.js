@@ -1,6 +1,6 @@
 let animationInProgress = false;
 let counter = 0;
-function onClick(){
+function onClickGet(){
     if (animationInProgress) {
         return false;
     }
@@ -17,20 +17,22 @@ function onClick(){
         animationInProgress = false;
     }, 700)
 }
-
 function onClickPost(){
-    if(document.querySelector('#wordEng') != null && document.querySelector('#wordRus') != null){
-        let wordEng = document.querySelector('#wordEng')
-        let wordRus = document.querySelector('#wordRus')
-        let json = JSON.stringify({"wordEng": wordEng.value, "wordRus": wordRus.value})
-        httpPost(document.location.href, json)
+    let wordEng = document.querySelector('#wordEng');
+    let wordRus = document.querySelector('#wordRus');
+    if(wordEng != null && wordRus != null){
+        let json = JSON.stringify({"wordEng": wordEng.value, "wordRus": wordRus.value});
+        httpPost(document.location.href, json);
+        alert("Слово успешно добавлено в словарь");
+    } else {
+        alert("Не все обязательные поля заполнены");
     }
 }
 
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl + '1/'); // false for synchronous request
-    xmlHttp.responseType = "json"
+    xmlHttp.responseType = "json";
     xmlHttp.send();
     xmlHttp.onload = function (){
         if(xmlHttp.status !== 200){
@@ -44,7 +46,7 @@ function httpGet(theUrl) {
 
 function httpPost(theUrl, json){
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "POST", theUrl + '2/');
-    xmlHttp.responseType = "json";
+    xmlHttp.open( "POST", theUrl + 'add-word/');
+    xmlHttp.setRequestHeader("Content-Type", "application/json");
     xmlHttp.send(json);
 }

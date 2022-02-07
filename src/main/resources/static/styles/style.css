@@ -119,14 +119,17 @@
     height: 100vh;
 }
 .creator{
-    height: 50%;
     width: 500px;
     margin: auto;
+    padding: 10px 10px 10px 10px;
+    box-shadow: black 2px 2px 5px;
+    border-radius: 5px;
+    background-color: #fefefe;
     display: flex;
     flex-direction: column;
 }
 .text-field{
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 .creator-ui-field{
     display: block;

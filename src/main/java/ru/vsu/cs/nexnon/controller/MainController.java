@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.vsu.cs.nexnon.WordPost;
 import ru.vsu.cs.nexnon.hibernate.Word;
 import ru.vsu.cs.nexnon.hibernate.WordService;
 
@@ -33,5 +34,13 @@ public class MainController {
         WordService wordService = new WordService();
         wordService.saveWord(word);
         return "index";
+    }
+
+    @PostMapping("/add-word")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addWord(@RequestBody WordPost wordPost){
+        WordService wordService = new WordService();
+        Word word = new Word(wordPost.getWordEng(), wordPost.getWordRus());
+        wordService.saveWord(word);
     }
 }
