@@ -1,9 +1,9 @@
 package ru.vsu.cs.nexnon.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.vsu.cs.nexnon.hibernate.Word;
 import ru.vsu.cs.nexnon.hibernate.WordService;
 
@@ -25,5 +25,13 @@ public class MainController {
         map.put("wordEng", word.getWordEng());
         map.put("wordRus", word.getWordRus());
         return map;
+    }
+    @PostMapping("/words")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String addWord(@RequestParam("wordEng") String wordEng, @RequestParam("wordRus") String wordRus){
+        Word word = new Word(wordEng, wordRus);
+        WordService wordService = new WordService();
+        wordService.saveWord(word);
+        return "index";
     }
 }

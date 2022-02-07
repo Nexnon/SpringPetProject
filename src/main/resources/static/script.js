@@ -17,6 +17,16 @@ function onClick(){
         animationInProgress = false;
     }, 700)
 }
+
+function onClickPost(){
+    if(document.querySelector('#wordEng') != null && document.querySelector('#wordRus') != null){
+        let wordEng = document.querySelector('#wordEng')
+        let wordRus = document.querySelector('#wordRus')
+        let json = JSON.stringify({"wordEng": wordEng.value, "wordRus": wordRus.value})
+        httpPost(document.location.href, json)
+    }
+}
+
 function httpGet(theUrl) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl + '1/'); // false for synchronous request
@@ -31,10 +41,10 @@ function httpGet(theUrl) {
         }
     }
 }
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
+
+function httpPost(theUrl, json){
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", theUrl + '2/');
+    xmlHttp.responseType = "json";
+    xmlHttp.send(json);
 }

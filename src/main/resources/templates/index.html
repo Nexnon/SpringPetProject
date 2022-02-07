@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}">
+        <script th:src="@{script.js}"></script>
+        <title>UpVocabulary</title>
     </head>
     <body>
         <header class="overlay">
@@ -11,21 +13,36 @@
             </div>
         </header>
         <section class="context">
-            <div class="card" onclick="onClick()" >
-                <div class="flipper">
-                    <div class="front">
-                        <div class="darker d-card">
-                            <h2 class="word-eng word">Word</h2>
-                        </div> 
-                    </div>
-                    <div class="back">
-                        <div class="darker d-card">
-                            <h2 class="word-rus word">Слово</h2>
-                        </div> 
+            <div class="get-card">
+                <div class="card" onclick="onClick()" >
+                    <div class="flipper">
+                        <div class="front">
+                            <div class="darker d-card">
+                                <h2 class="word-eng word">Word</h2>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="darker d-card">
+                                <h2 class="word-rus word">Слово</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <script th:src="@{script.js}"></script>
+            <div class="create-card">
+                <form class="creator" th:method="post" action="/words">
+                    <div class="text-field">
+                        <label class="creator-text">Слово на английском<div style="color: red; display: inline;">*</div></label>
+                        <input class="creator-ui-field" required th:type="text" name="wordEng" id="wordEng" placeholder="Word">
+                    </div>
+                    <div class="text-field">
+                        <label class="creator-text">Слово на русском<div style="color: red; display: inline;">*</div></label>
+                        <input class="creator-ui-field" required th:type="text" name="wordRus" id="wordRus" placeholder="Слово">
+                    </div>
+                    <button class="creator-ui-button">Добавить в словарь</button>
+                </form>
+            </div>
+
         </section>
         <footer class="footer">
             <h1 class="footer-title">Широков Илья</h1>
