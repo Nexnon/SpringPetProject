@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" th:href="@{/styles/style.css}">
@@ -31,13 +31,13 @@
                 </div>
             </div>
             <div class="create-card">
-                <form class="creator" th:method="post" action="/words">
+                <form class="creator" th:method="post">
                     <div class="text-field">
-                        <label class="creator-text">Слово на английском<div style="color: red; display: inline;">*</div></label>
+                        <label class="creator-text" for="wordEng">Слово на английском<div style="color: red; display: inline;">*</div></label>
                         <input class="creator-ui-field" required th:type="text" name="wordEng" id="wordEng" placeholder="Word">
                     </div>
                     <div class="text-field">
-                        <label class="creator-text">Слово на русском<div style="color: red; display: inline;">*</div></label>
+                        <label class="creator-text" for="wordRus">Слово на русском<div style="color: red; display: inline;">*</div></label>
                         <input class="creator-ui-field" required th:type="text" name="wordRus" id="wordRus" placeholder="Слово">
                     </div>
                     <button class="creator-ui-button" type="button" onclick="onClickPost()" >Добавить в словарь</button>

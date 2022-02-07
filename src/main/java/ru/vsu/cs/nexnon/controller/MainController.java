@@ -2,7 +2,6 @@ package ru.vsu.cs.nexnon.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.cs.nexnon.WordPost;
 import ru.vsu.cs.nexnon.hibernate.Word;
@@ -15,11 +14,11 @@ import java.util.Map;
 public class MainController {
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home(){
         return "index";
     }
     @GetMapping("/1")
-    public @ResponseBody  Map<String, String> words(Model model){
+    public @ResponseBody  Map<String, String> words(){
         Map<String, String> map = new HashMap<>();
         WordService wordService = new WordService();
         Word word = wordService.getRandomWord();
